@@ -71,13 +71,14 @@ while active:
                             # This is resetting the counter so then values over 20 can be added to the dictionary
                             if counter == 20:
                                 counter = 0
+
                             if box[1] == [255, 0, 0]:
                                 dicty[counter] += "😈"
                             else:
                                 dicty[counter] += "😇"
+
                             counter += 1
 
-                    print(dicty)
                     for i in dicty:
                         f.write((dicty[i]) + "\n")
 
