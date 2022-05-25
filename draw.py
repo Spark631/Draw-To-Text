@@ -25,7 +25,6 @@ def draw_boxes(screen, width, height):
     for i in range(rows):
         for j in range(columns):
             pygame.draw.rect(screen, (0, 255, 0), (i * 40, j * 40, 40, 40))
-            # boxes.append((i * 40, j * 40, 40, 40))
             boxes.append((screen, [0, 255, 0], (i * 40, j * 40, 40, 40)))
     return boxes
 
@@ -34,6 +33,8 @@ def hand_draw(screen, width, height):
         if box[1] == [255, 0, 0]:
             pygame.draw.rect(screen, (255, 0, 0), box[2])
     pass
+
+counter = 0
 
 while active:
 
@@ -44,12 +45,41 @@ while active:
         draw_grid(screen, width, height)
         drawn = True
     hand_draw(screen, width, height)
-    
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             active = False
             pygame.quit()
             sys.exit()
+
+        if event.type == pygame.KEYDOWN:
+            dicty = {}
+            if event.key == pygame.K_SPACE:
+                with open("grid.txt", "w", encoding="utf-8") as f:
+                    for i, box in enumerate(boxes):
+
+                        # This is basically creating the outline of the dictionary
+                        if i < 20:
+
+                            # If the box is red, then we will add it to the dictionary as an " O "
+                            if box[1] == [255, 0, 0]:
+                                dicty[i] = "😈"
+                            else:
+                                # If the box is green, then we will add it to the dictionary as an " X "
+                                dicty[i] = "😇"
+                        else:
+                            # This is resetting the counter so then values over 20 can be added to the dictionary
+                            if counter == 20:
+                                counter = 0
+                            if box[1] == [255, 0, 0]:
+                                dicty[counter] += "😈"
+                            else:
+                                dicty[counter] += "😇"
+                            counter += 1
+
+                    print(dicty)
+                    for i in dicty:
+                        f.write((dicty[i]) + "\n")
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             for box in boxes:
