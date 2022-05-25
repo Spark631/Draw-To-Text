@@ -44,6 +44,7 @@ while active:
         draw_boxes(screen, width, height)
         draw_grid(screen, width, height)
         drawn = True
+        
     hand_draw(screen, width, height)
 
     for event in pygame.event.get():
