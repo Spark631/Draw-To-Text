@@ -75,22 +75,22 @@ while active:
 
                         if i < 20: # This is basically creating the outline of the dictionary
 
-                            if box[1] == [255, 0, 0]: # If the box is red, then we will add it to the dictionary as an " 😈 "
-                                char_hold[i] = "😈"
+                            if box[1] == [255, 0, 0]: # If the box is red, then we will add it to the dictionary as an " ▢ "
+                                char_hold[i] = "▢"
                             else:
-                                char_hold[i] = "😇"  # If the box is green, then we will add it to the dictionary as an " 😇 "
+                                char_hold[i] = "▥"  # If the box is green, then we will add it to the dictionary as an " ▥ "
                         else:
                             if counter == 20:  # This is resetting the counter so then values over 20 can be added to the dictionary
                                 counter = 0
 
                             if box[1] == [255, 0, 0]: # This is now adding to the dictionary instead of setting it
-                                char_hold[counter] += "😈"
+                                char_hold[counter] += "▢"
                             else:
-                                char_hold[counter] += "😇"
+                                char_hold[counter] += "▥"
 
                             counter += 1
 
-                    for i in dicty:
+                    for i in char_hold:
                         f.write((char_hold[i]) + "\n") # prints each key on separate lines.
 
         if event.type == pygame.MOUSEBUTTONDOWN:
