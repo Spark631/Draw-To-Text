@@ -1,5 +1,6 @@
 # 🎨 🡲 📱 Draw To Text
 DTT(Draw To Text) will convert your pixel drawings actual text!
+
 You will be able to copy and paste your drawings anywhere you go.
 
 ![HLqBSqDVcz](https://user-images.githubusercontent.com/69885780/170386982-d93c9789-d6cb-4149-b668-ba057d6ed055.gif)
